@@ -10,7 +10,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx}\" --config \".prettierrc.json\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "seed": "npx tsx scripts/seed.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@faker-js/faker": "^10.4.0",
     "@tanstack/router-plugin": "^1.167.12",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
@@ -44,6 +46,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "prettier": "3.8.1",
+    "tsx": "^4.21.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",
     "vite": "^7.3.1"
