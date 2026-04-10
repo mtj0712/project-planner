@@ -10,11 +10,13 @@ export const list = query({
 
 export const create = mutation({
   args: {
+    projectId: v.id("projects"),
     title: v.string(),
     description: v.string(),
   },
   handler: async (ctx, args) => {
     await ctx.db.insert("tasks", {
+      projectId: args.projectId,
       title: args.title,
       description: args.description,
       status: "todo",
