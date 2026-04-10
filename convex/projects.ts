@@ -8,8 +8,18 @@ const CASCADE_DELETE_BATCH_SIZE = 100;
 export const list = query({
   args: {
     paginationOpts: paginationOptsValidator,
+    search: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
+    if (args.search) {
+      return await ctx.db
+        .query("projects")
+        .withSearchIndex("search_name", (q) =>
+          q.search("name", args.search!).eq("deletedAt", undefined),
+        )
+        .paginate(args.paginationOpts);
+    }
+
     return await ctx.db
       .query("projects")
       .withIndex("by_deletedAt", (q) => q.eq("deletedAt", undefined))

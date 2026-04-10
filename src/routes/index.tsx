@@ -1,11 +1,11 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { usePaginatedQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import ProjectCard from "@/components/project-card";
+import ProjectSearch from "@/components/project-search";
 import CreateProjectDialog from "@/components/create-project-dialog";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import ProjectSearch from "@/components/project-search";
 
 export const Route = createFileRoute("/")({
   component: ProjectListPage,
@@ -13,17 +13,12 @@ export const Route = createFileRoute("/")({
 
 function ProjectListPage() {
   const [searchQuery, setSearchQuery] = useState("");
+
   const { results, status, loadMore } = usePaginatedQuery(
     api.projects.list,
-    {},
+    searchQuery.trim() ? { search: searchQuery.trim() } : {},
     { initialNumItems: 6 },
   );
-
-  const filtered = searchQuery.trim()
-    ? results.filter((p) =>
-        p.name.toLowerCase().includes(searchQuery.toLowerCase()),
-      )
-    : results;
 
   return (
     <div>
@@ -33,11 +28,10 @@ function ProjectListPage() {
           <ProjectSearch value={searchQuery} onChange={setSearchQuery} />
           <CreateProjectDialog />
         </div>
-        <CreateProjectDialog />
       </div>
       {status === "LoadingFirstPage" ? (
         <p className="text-muted-foreground">Loading projects...</p>
-      ) : filtered.length === 0 ? (
+      ) : results.length === 0 ? (
         <p className="py-12 text-center text-muted-foreground">
           {searchQuery.trim()
             ? "No matching projects found"
@@ -46,7 +40,7 @@ function ProjectListPage() {
       ) : (
         <>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((project) => (
+            {results.map((project) => (
               <ProjectCard key={project._id} project={project} />
             ))}
           </div>

@@ -6,7 +6,12 @@ export default defineSchema({
     name: v.string(),
     description: v.optional(v.string()),
     deletedAt: v.optional(v.number()),
-  }).index("by_deletedAt", ["deletedAt"]),
+  })
+    .index("by_deletedAt", ["deletedAt"])
+    .searchIndex("search_name", {
+      searchField: "name",
+      filterFields: ["deletedAt"],
+    }),
   tasks: defineTable({
     projectId: v.id("projects"),
     title: v.string(),
