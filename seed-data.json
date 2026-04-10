@@ -1,0 +1,102 @@
+{
+  "projects": [
+    {
+      "name": "Website Redesign",
+      "description": "Modernize the company website with a fresh look.",
+      "tasks": [
+        {
+          "title": "Audit existing pages",
+          "description": "Review all current pages for outdated content",
+          "status": "done"
+        },
+        {
+          "title": "Create wireframes",
+          "description": "Design wireframes for the new homepage",
+          "status": "done"
+        },
+        {
+          "title": "Choose color palette",
+          "description": "Pick brand-aligned colors for the redesign",
+          "status": "in-progress"
+        },
+        {
+          "title": "Build navigation component",
+          "description": "Implement the responsive top nav bar",
+          "status": "todo"
+        },
+        {
+          "title": "Write homepage copy",
+          "description": "Draft the hero section and feature highlights",
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "name": "Mobile App Launch",
+      "description": "Ship the first version of our mobile app.",
+      "tasks": [
+        {
+          "title": "Set up React Native project",
+          "description": "Initialize the project with Expo",
+          "status": "done"
+        },
+        {
+          "title": "Design onboarding flow",
+          "description": "Create screens for first-time users",
+          "status": "in-progress"
+        },
+        {
+          "title": "Implement push notifications",
+          "description": "Set up Firebase Cloud Messaging",
+          "status": "in-progress"
+        },
+        {
+          "title": "Build user profile screen",
+          "description": "Display and edit user information",
+          "status": "todo"
+        },
+        {
+          "title": "Test on Android and iOS",
+          "description": "Run manual QA on both platforms",
+          "status": "todo"
+        },
+        {
+          "title": "Submit to app stores",
+          "description": "Prepare screenshots and descriptions",
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "name": "API Integration",
+      "description": "Connect our platform with third-party services.",
+      "tasks": [
+        {
+          "title": "Research payment providers",
+          "description": "Compare Stripe, Square, and PayPal",
+          "status": "done"
+        },
+        {
+          "title": "Implement OAuth flow",
+          "description": "Add Google and GitHub login support",
+          "status": "done"
+        },
+        {
+          "title": "Build webhook handler",
+          "description": "Process incoming events from partners",
+          "status": "in-progress"
+        },
+        {
+          "title": "Write API documentation",
+          "description": "Document all public endpoints",
+          "status": "todo"
+        },
+        {
+          "title": "Add rate limiting",
+          "description": "Protect endpoints from abuse",
+          "status": "todo"
+        }
+      ]
+    }
+  ]
+}

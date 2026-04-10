@@ -11,6 +11,7 @@
 import type * as cleanup from "../cleanup.js";
 import type * as crons from "../crons.js";
 import type * as projects from "../projects.js";
+import type * as seed from "../seed.js";
 import type * as tasks from "../tasks.js";
 
 import type {
@@ -23,6 +24,7 @@ declare const fullApi: ApiFromModules<{
   cleanup: typeof cleanup;
   crons: typeof crons;
   projects: typeof projects;
+  seed: typeof seed;
   tasks: typeof tasks;
 }>;
 

@@ -9,7 +9,7 @@ export const list = query({
   handler: async (ctx) => {
     return await ctx.db
       .query("projects")
-      .withIndex("by_deletedAt", (q) => q.ed("deletedAt", undefined))
+      .withIndex("by_deletedAt", (q) => q.eq("deletedAt", undefined))
       .collect();
   },
 });
