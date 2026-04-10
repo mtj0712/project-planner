@@ -20,7 +20,7 @@ type TaskCardProps = {
 };
 
 function TaskCard({ task, isOverlay }: TaskCardProps) {
-  const updateStatus = useUpdateTaskStatus();
+  const updateStatus = useUpdateTaskStatus(task.projectId);
   const removeTask = useMutation(api.tasks.remove);
 
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
