@@ -15,5 +15,5 @@ export default defineSchema({
       v.literal("in-progress"),
       v.literal("done"),
     ),
-  }),
+  }).index("by_project", ["projectId"]),
 });

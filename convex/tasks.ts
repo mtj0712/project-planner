@@ -8,7 +8,7 @@ export const list = query({
   handler: async (ctx, args) => {
     return await ctx.db
       .query("tasks")
-      .filter((q) => q.eq(q.field("projectId"), args.projectId))
+      .withIndex("by_project", (q) => q.eq("projectId", args.projectId))
       .collect();
   },
 });
