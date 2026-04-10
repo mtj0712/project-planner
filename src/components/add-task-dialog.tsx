@@ -10,10 +10,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import type { Id } from "../../convex/_generated/dataModel";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-function AddTaskDialog() {
+type AddTaskDialogProps = {
+  projectId: Id<"projects">;
+};
+
+function AddTaskDialog({ projectId }: AddTaskDialogProps) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -23,7 +28,10 @@ function AddTaskDialog() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!title.trim()) return;
-    createTask({ title: title.trim(), description: description.trim() });
+    createTask({
+      projectId,
+      title: title.trim(), description: description.trim()
+    });
     setTitle("");
     setDescription("");
     setOpen(false);
